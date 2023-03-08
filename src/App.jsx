@@ -1,41 +1,46 @@
 
 import axios from 'axios'
 import './App.css'
-import Character from './components/Character'
 import { useEffect, useState } from 'react'
 
 
 function App() {
-  const [characterData, setCharacterData]= useState ({})
-  const [idRandom, setIdRandom]= useState(1)
+  
 
   useState({})
-
-
+  const [latitude, setLatitude]= useState(``)
+  const [longitude, setLongitude]= useState(``)
+  const [clima, setClima]=useState("")
   useEffect(()=>{
+    navigator.geolocation.getCurrentPosition((position)=>{
+      setLatitude(position.coords.latitude)
+      setLongitude(position.coords.longitude)
+    
+    })
+    if(latitude !== `` && longitude !== ``){
     axios
-    .get(`https://rickandmortyapi.com/api/character/${idRandom}`)
-    .then(resp=>setCharacterData(resp.data))
-    .catch(error=> console.error(error))
+    .get(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=3a261a4252f7472e8aad542f835362c9`)
+    .then(resp=>setClima(resp.data))
+    .catch(error=> console.log(error))}
 
-  },[idRandom])
+  },[latitude, longitude])
 
-  const generateRandomNumber =()=>{
-    const numberRandom =Math.floor(Math.random()*826)+1
-
-    setIdRandom(numberRandom)
-  }
-
+    
+console.log (latitude)
+console.log(longitude)
+console.log (setClima)
 
   return (
 
     <div className="App">
-  
-      <Character
-      data={characterData}
-      />
-      <button onClick={generateRandomNumber}>Change Character</button>
-
+      <div className='climate-card'>
+      <h1>{clima.name}</h1>
+      <h2>State: {clima?.weather?.[0]?.main}</h2>
+      <h2>{clima?.weather?.[0]?.icon}</h2>
+      <h2>Temperature: {clima?.main?.temp}°C</h2>
+      <h2>Humidity: {clima?.main?.humidity}</h2>
+      <h2>Country{clima?.sys?.country}</h2>
+      </div>
    </div>
     
   )

@@ -7,8 +7,9 @@
   place-content: center;
 
 }
-.info{
+.climate-card{
   border-radius:40px;
   padding: 20px;
-  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3) 
+  box-shadow: 2px 2px 8px rgba(114, 9, 9, 0.3) ;
+  ;
 }
