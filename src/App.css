@@ -11,7 +11,7 @@
   flex-direction: column;
   place-content: center;
   align-items: center;
-  Background-image: linear-gradient(to bottom, #d5F3FF, #55dddd);
+  background-image: linear-gradient(to bottom, #d5F3FF, #55dddd);
 
 }
 .climate-card{
@@ -19,7 +19,7 @@
   padding: 20px;
   width: 350px;
   box-shadow: 2px 2px 8px rgba(114, 9, 9, 0.3) ;
-  Background-image: linear-gradient(to bottom, #d5F3FF, #fbffff);
+  background-image: linear-gradient(to bottom, #d5F3FF, #fbffff);
   
   ;
   
