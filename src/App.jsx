@@ -43,7 +43,7 @@ console.log (setClima)
       <div className='climate-card'>
         <div className='b1'>
           <h1>{clima?.main?.temp}°</h1>
-          <img src={ clima ? `../public/iconos/${clima?.weather?.[0]?.icon}.svg`: imgIcon } alt="" />
+          <img src={ clima ? `../public/iconos/${clima?.weather?.[0]?.icon}.png`: imgIcon } alt="" />
       </div>
       <div className='state'>
           <h2>Humedad: <span>{clima?.main?.humidity}%</span></h2>
