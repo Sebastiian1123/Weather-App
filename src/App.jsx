@@ -2,7 +2,6 @@
 import axios from 'axios'
 import './App.css'
 import { useEffect, useState } from 'react'
-
 import ClimaState from './components/ClimaState'
 
 
@@ -20,7 +19,7 @@ function App() {
     .then(resp=>setClima(resp.data))
     .catch(error=> console.log(error))
   },[latitude, longitude],
-
+  
  
     navigator.geolocation.getCurrentPosition((position)=>{
       setLatitude(position.coords.latitude)
@@ -40,7 +39,7 @@ console.log (setClima)
     <div className="App">
       
       <ClimaState
-      clima={clima}
+      data={clima}
       />
       
    </div>
