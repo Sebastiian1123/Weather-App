@@ -2,7 +2,7 @@
 import axios from 'axios'
 import './App.css'
 import { useEffect, useState } from 'react'
-
+import imgIcon from "../public/iconos/dom.png"
 
 function App() {
   
@@ -43,7 +43,7 @@ console.log (setClima)
       <div className='climate-card'>
         <div className='b1'>
           <h1>{clima?.main?.temp}°</h1>
-          <img src={`../public/iconos/${clima?.weather?.[0]?.icon}.png`} alt="" />
+          <img src={ clima ? `../public/iconos/${clima?.weather?.[0]?.icon}.svg`: imgIcon } alt="" />
       </div>
       <div className='state'>
           <h2>Humedad: <span>{clima?.main?.humidity}%</span></h2>
